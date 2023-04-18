@@ -31,9 +31,12 @@ var numberOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var specialCharOptions = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "`", "~", "[", "]", "{", "}", "|", ";", ":", "'", ",", "<", ">", ".", "/", "?"]
 var userChoice = [];
 
+// something similar to these examples from activites probably needed in a function somewhere
+// for (var i = 0; i < zooAnimals.length; i++) { 
+// console.log("I am going to zoo to see " + zooAnimals[i] + ".");
+// }
 // var index = Math.floor(Math.random() * options.length);
-// something similar to this example from activites probably needed in a function somewhere
- 
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -47,33 +50,40 @@ function writePassword() {
 // Function would be defined by prompt criteria chosen
 function generatePassword() {
 
+// Prompts for user criteria should go in here (character length, lowercase. uppercase, numbers, special chars)
+// Validate input
+// Generate Password based on criteria
+// Password shown in box
+return password; // returns [object HTMLTextAreaElement]
 }
+
 // getPrompts() returning undefined in console after selecting a number within range instead of going through rest of prompts?
 function getPrompts() {
-  characterLength = prompt("How long do you want your password to be? (8-128 characters)")
+  userChoice = [];
+  characterLength = parseInt(prompt("How long do you want your password to be? (8-128 characters)")) //needed parseInt function in order to return an integer
   
   if (characterLength < 8 || characterLength > 128 ) {
     alert("Character length needs to be a number, 8 - 128.");
     return false;
   }
 
-  if (confirm("Do you want your password to include lowercase letters?")) {
+  if (confirm("Do you want your password to include lowercase letters? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(lowerCaseOptions);
     //if not then do not concat arrays / something needs to happen?
   }
 
-  if (confirm("Do you want your password to include uppercase letters?")) {
+  if (confirm("Do you want your password to include uppercase letters? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(upperCaseOptions);
     //if not then do not concat arrays / something needs to happen?
   }
 
-  if (confirm("Do you want your password to include numbers?")) {
+  if (confirm("Do you want your password to include numbers? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(numberOptions);
     //if not then do not concat arrays / something needs to happen?
   }
 
-  if (confirm("Do you want your password to include special characters?")) {
-    userChoice = userChoice.concat(speacialCharOptions);
+  if (confirm("Do you want your password to include special characters? Click 'OK' for YES and 'Cancel' for NO.")) {
+    userChoice = userChoice.concat(specialCharOptions);
     //if not then do not concat arrays / something needs to happen?
   }
   return true;
