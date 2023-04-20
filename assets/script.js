@@ -16,14 +16,12 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 // Add event listener to generate button
-
 generateBtn.addEventListener("click", writePassword);
 
 
 // password user choice length is >= 8 <= 128 characters
-var characterLength = [];
+var characterLength = " ";
 // possible user choices: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+`~[]{}|;:',<>./?
 var lowerCaseOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var upperCaseOptions = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -39,22 +37,29 @@ var userChoice = [];
 
 // Write password to the #password input
 function writePassword() {
+  var criteriaSelected = getPrompts();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  if (criteriaSelected) {
+
+  }
   passwordText.value = password;
 
 }
 
-// When button clicked, console says generatePassword() is not defined so we need to define this function
+// When button clicked, console says generatePassword() is not defined so we need to define this function  
 // Function would be defined by prompt criteria chosen
 function generatePassword() {
-
-// Prompts for user criteria should go in here (character length, lowercase. uppercase, numbers, special chars)
+  var password = " ";
 // Validate input
 // Generate Password based on criteria
 // Password shown in box
-return password; // returns [object HTMLTextAreaElement]
+for (var i = 0; i < characterLength; i++) {
+  var optionIndex =  Math.floor(Math.random() * userChoice.length);
+  password = password + userChoice[optionIndex]
+}
+return password; 
 }
 
 // getPrompts() returning undefined in console after selecting a number within range instead of going through rest of prompts?
@@ -69,22 +74,34 @@ function getPrompts() {
 
   if (confirm("Do you want your password to include lowercase letters? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(lowerCaseOptions);
+    alert("OK! Your new password will include lowercase letters.");
     //if not then do not concat arrays / something needs to happen?
+  } else {
+    alert("Your new password will NOT include lowercase letters.");
   }
 
   if (confirm("Do you want your password to include uppercase letters? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(upperCaseOptions);
+    alert("OK! Your new password will include uppercase letters.");
     //if not then do not concat arrays / something needs to happen?
+  } else {
+    alert("Your new password will NOT include uppercase letters.");
   }
 
   if (confirm("Do you want your password to include numbers? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(numberOptions);
+    alert("OK! Your new password will include numbers.");
     //if not then do not concat arrays / something needs to happen?
+  } else {
+    alert("Your new password will NOT include numbers.");
   }
 
   if (confirm("Do you want your password to include special characters? Click 'OK' for YES and 'Cancel' for NO.")) {
     userChoice = userChoice.concat(specialCharOptions);
+    alert("OK! Your new password will include special characters.");
     //if not then do not concat arrays / something needs to happen?
-  }
+  } else {
+    alert("Your new password will NOT include special characters.");
   return true;
+}
 }
