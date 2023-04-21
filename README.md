@@ -16,8 +16,13 @@ interact with functions in order to get the intended results.
 4. Get your new, random password based on the criteria selected.
 
 ![project screenshot](./assets/images/password-generator-screenshot.jpg)
-   
+## Credits
+
+-Source Code:
+https://uci.bootcampcontent.com/UCI-Coding-Bootcamp/UCI-VIRT-FSF-PT-03-2023-U-LOLC/-/tree/main/03-JavaScript/02-Challenge
+
 ## Links
+
 -Deployed Application:
 https://dsoda86.github.io/password-generator/
 
